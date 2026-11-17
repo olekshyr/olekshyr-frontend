@@ -12,6 +12,12 @@ import { hasLocale } from "@/lib/i18n"
 type Props = PageProps<"/[lang]/blog/[...view]">
 
 /**
+ * The whole page depends on the URL and a wrong URL must answer 404, which a
+ * streamed page cannot, so it renders in one piece (no shared App Shell).
+ */
+export const instant = false
+
+/**
  * A view that was not prerendered waits for its complete page, so a page past
  * the end or an unknown tag answers 404 instead of a 200 shell.
  */

@@ -37,6 +37,12 @@ import { cn } from "@/lib/utils"
 
 type Props = PageProps<"/[lang]/projects/[slug]">
 
+/**
+ * The whole page depends on the URL and a wrong URL must answer 404, which a
+ * streamed page cannot, so it renders in one piece (no shared App Shell).
+ */
+export const instant = false
+
 /** An unknown slug answers 404 instead of a 200 shell. */
 export const ensureStatic = "navigation"
 

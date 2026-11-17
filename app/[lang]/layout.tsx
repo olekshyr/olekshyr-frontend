@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { HTML_LANG, LOCALES, SITE_URL, hasLocale } from "@/lib/i18n";
 
-import { THEME_SCRIPT } from "@/lib/theme";
+import { ThemeScript } from "@/components/site/theme-script";
 
 import "../globals.css";
 
@@ -53,7 +53,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <ThemeScript />
       </head>
       <body>{children}</body>
     </html>

@@ -31,6 +31,12 @@ import { withOutline, type OutlineItem } from "@/lib/post-body"
 type Props = PageProps<"/[lang]/blog/[slug]">
 
 /**
+ * The whole page depends on the URL and a wrong URL must answer 404, which a
+ * streamed page cannot, so it renders in one piece (no shared App Shell).
+ */
+export const instant = false
+
+/**
  * A post that was not prerendered waits for its complete page on the first
  * request, so an unknown slug answers 404 instead of a 200 shell.
  */
